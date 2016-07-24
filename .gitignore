@@ -1,6 +1,6 @@
 node_modules/
 dist/
-webpack-assets.json
-webpack-stats.json
-npm-debug.log
+webpack-*.json
+webpack/dlls/*.json
 .happypack
+npm-debug.log
