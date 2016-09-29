@@ -1,9 +1,4 @@
-import App from './App'
-import Home from './Home'
-import NotFound from './NotFound'
-
-module.exports = {
-  App,
-  Home,
-  NotFound,
-}
+export {default as About} from './About'
+export {default as App} from './App'
+export {default as Home} from './Home'
+export {default as NotFound} from './NotFound'

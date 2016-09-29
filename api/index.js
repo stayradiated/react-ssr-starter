@@ -5,7 +5,7 @@ import PrettyError from 'pretty-error'
 
 import * as actions from './actions/index'
 import config from '../src/config'
-import {mapUrl} from './utils/url.js'
+import {mapUrl} from './utils/url'
 
 const pretty = new PrettyError()
 const app = express()

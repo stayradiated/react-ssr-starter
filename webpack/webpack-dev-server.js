@@ -3,6 +3,7 @@ const webpack = require('webpack')
 
 const config = require('../src/config')
 const webpackConfig = require('./dev.config')
+
 const compiler = webpack(webpackConfig)
 
 const host = config.host || 'localhost'

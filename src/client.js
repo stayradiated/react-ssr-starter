@@ -1,8 +1,6 @@
 import 'babel-polyfill'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import createStore from './redux/create'
-import ApiClient from './helpers/ApiClient'
 import {Provider} from 'react-redux'
 import {Router, browserHistory} from 'react-router'
 import {syncHistoryWithStore} from 'react-router-redux'
@@ -10,6 +8,8 @@ import {ReduxAsyncConnect} from 'redux-connect'
 import {AppContainer as HotEnabler} from 'react-hot-loader'
 import withScroll from 'scroll-behavior'
 
+import createStore from './redux/create'
+import ApiClient from './helpers/ApiClient'
 import getRoutes from './routes'
 
 const client = new ApiClient()
@@ -26,16 +26,18 @@ const renderRouter = (props) => (
   />
 )
 
-const render = (routes) => ReactDOM.render(
-  <HotEnabler>
-    <Provider store={store} key='provider'>
-      <Router history={history} render={renderRouter}>
-        {routes}
-      </Router>
-    </Provider>
-  </HotEnabler>,
-  dest
-)
+const render = (routes) => {
+  ReactDOM.render(
+    <HotEnabler>
+      <Provider store={store} key='provider'>
+        <Router history={history} render={renderRouter}>
+          {routes}
+        </Router>
+      </Provider>
+    </HotEnabler>,
+    dest
+  )
+}
 
 render(getRoutes(store))
 

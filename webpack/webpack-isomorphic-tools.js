@@ -10,52 +10,6 @@ module.exports = {
    */
   debug: false, // is false by default
 
-  /*
-   * verbosity.
-   * when set to true, outputs Webpack stats to the console
-   * in development mode on each incremental build.
-   * (i don't know who might need that info)
-   */
-  verbose: false,
-
-  /*
-   * enables support for `require.context()` and `require.ensure()` functions.
-   * is turned off by default
-   * to skip unnecessary code instrumentation
-   * because not everyone uses it.
-   */
-  patch_require: false,
-
-  /*
-   * By default it creates 'webpack-assets.json' file at
-   * webpack_configuration.context (which is your project folder).
-   * You can change the assets file path as you wish
-   * (therefore changing both folder and filename).
-   *
-   * (relative to webpack_configuration.context which is your project folder)
-   */
-  webpack_assets_file_path: 'webpack-assets.json',
-
-  /*
-   * By default, when running in debug mode, it creates 'webpack-stats.json'
-   * file at webpack_configuration.context (which is your project folder).
-   * You can change the stats file path as you wish
-   * (therefore changing both folder and filename).
-   *
-   * (relative to webpack_configuration.context which is your project folder)
-   */
-  webpack_stats_file_path: 'webpack-stats.json',
-
-  /*
-   * Makes `webpack-isomorphic-tools` aware of Webpack aliasing feature
-   * (if you use it)
-   * https://webpack.github.io/docs/resolving.html#aliasing
-   *
-   * The `alias` parameter corresponds to `resolve.alias`
-   * in your Webpack configuration.
-   */
-  alias: {},
-
   assets: {
     images: {
       extensions: [

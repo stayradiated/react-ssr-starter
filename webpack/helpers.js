@@ -1,8 +1,9 @@
 const path = require('path')
 const fs = require('fs')
-const projectRootPath = path.resolve(__dirname, '../')
 const webpack = require('webpack')
 const HappyPack = require('happypack')
+
+const projectRootPath = path.resolve(__dirname, '../')
 const happyThreadPool = new HappyPack.ThreadPool({size: 5})
 
 // restrict loader to files under /src
@@ -34,7 +35,7 @@ function createHappyPlugin (id) {
 
 function loadDLLManifest (filePath) {
   try {
-    return require(filePath)
+    return require(filePath) // eslint-disable-line import/no-dynamic-require
   } catch (e) {
     process.env.WEBPACK_DLLS = '0'
 
@@ -69,7 +70,9 @@ function installVendorDLL (config, dllName) {
 function isValidDLLs (dllNames, assetsPath) {
   for (const dllName of dllNames) {
     try {
-      const manifest = require(path.join(projectRootPath, `webpack/dlls/${dllName}.json`))
+      const manifestPath = path.join(projectRootPath, `webpack/dlls/${dllName}.json`)
+      const manifest = require(manifestPath) // eslint-disable-line import/no-dynamic-require
+
       const dll = fs.readFileSync(path.join(assetsPath, `dlls/dll__${dllName}.js`)).toString('utf-8')
       if (dll.indexOf(manifest.name) === -1) {
         console.warn(`Invalid dll: ${dllName}`)
